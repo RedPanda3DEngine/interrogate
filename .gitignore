@@ -16,7 +16,6 @@ vgcore.*
 *.save
 *.save.1
 *.sublime-workspace
-.vscode/
 .idea/
 
 # Temporary build files
@@ -72,3 +71,17 @@ __pycache__/
 /.settings/
 /.cproject
 /.project
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix

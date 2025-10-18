@@ -17,6 +17,7 @@
 #include "typeManager.h"
 #include "functionWriters.h"
 #include "interfaceMakerC.h"
+#include "interfaceMakerCSharp.h"
 #include "interfaceMakerPythonObj.h"
 #include "interfaceMakerPythonSimple.h"
 #include "interfaceMakerPythonNative.h"
@@ -336,6 +337,11 @@ write_code(ostream &out_code,ostream * out_include, InterrogateModuleDef *def) {
 
   if (build_c_wrappers) {
     InterfaceMaker *maker = new InterfaceMakerC(def);
+    makers.push_back(maker);
+  }
+
+  if (build_csharp_wrappers) {
+    InterfaceMaker *maker = new InterfaceMakerCSharp(def);
     makers.push_back(maker);
   }
 

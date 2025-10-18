@@ -34,6 +34,7 @@ extern bool manage_reference_counts;
 extern bool watch_asserts;
 extern bool true_wrapper_names;
 extern bool build_c_wrappers;
+extern bool build_csharp_wrappers;
 extern bool build_python_wrappers;
 extern bool build_python_obj_wrappers;
 extern bool build_python_native;
