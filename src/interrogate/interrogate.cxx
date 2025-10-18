@@ -42,6 +42,7 @@ bool manage_reference_counts = false;
 bool watch_asserts = false;
 bool true_wrapper_names = false;
 bool build_c_wrappers = false;
+bool build_csharp_wrappers = false;
 bool build_python_wrappers = false;
 bool build_python_obj_wrappers = false;
 bool build_python_native = false;
@@ -73,6 +74,7 @@ enum CommandOptions {
   CO_assert,
   CO_true_names,
   CO_c,
+  CO_csharp,
   CO_python,
   CO_python_obj,
   CO_python_native,
@@ -101,6 +103,7 @@ static struct option long_options[] = {
   { "assert", no_argument, nullptr, CO_assert },
   { "true-names", no_argument, nullptr, CO_true_names },
   { "c", no_argument, nullptr, CO_c },
+  { "csharp", no_argument, nullptr, CO_csharp },
   { "python", no_argument, nullptr, CO_python },
   { "python-obj", no_argument, nullptr, CO_python_obj },
   { "python-native", no_argument, nullptr, CO_python_native },
@@ -238,6 +241,10 @@ void show_help() {
     << "        Generate function wrappers using the C calling convention.  Any\n"
     << "        scripting language that can call a C function should be able to\n"
     << "        make advantage of the interrogate database.\n\n"
+    << "  -csharp\n"
+    << "        Generate function wrappers with C# P/Invoke declarations.  The\n"
+    << "        generated code includes both C-compatible exported functions and\n"
+    << "        C# interop declarations for easy integration with .NET applications.\n\n"
     << "  -python\n"
     << "        Generate function wrappers using the Python calling convention.\n"
     << "        The shared library will be directly loadable as a Python module\n"
@@ -255,8 +262,8 @@ void show_help() {
     << "        python objects, with all methods converted to Python methods.  This\n"
     << "        is currently experimental.\n\n"
 
-    << "  Any combination of -c, -python, or -python-obj may be specified.  If all\n"
-    << "  are omitted, the default is -c.\n\n"
+    << "  Any combination of -c, -csharp, -python, or -python-obj may be specified.\n"
+    << "  If all are omitted, the default is -c.\n\n"
 
     << "  -track-interpreter\n"
     << "        Generate code within each wrapper function to adjust the global\n"
@@ -411,6 +418,10 @@ main(int argc, char **argv) {
       build_c_wrappers = true;
       break;
 
+    case CO_csharp:
+      build_csharp_wrappers = true;
+      break;
+
     case CO_python:
       build_python_wrappers = true;
       break;
@@ -500,8 +511,8 @@ main(int argc, char **argv) {
     exit(1);
   }
 
-  if (!build_c_wrappers && !build_python_wrappers &&
-      !build_python_obj_wrappers &&!build_python_native) {
+  if (!build_c_wrappers && !build_csharp_wrappers && !build_python_wrappers &&
+      !build_python_obj_wrappers && !build_python_native) {
     build_c_wrappers = true;
   }
 
