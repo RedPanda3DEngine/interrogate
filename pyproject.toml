@@ -5,9 +5,9 @@ requires = [
 build-backend = "scikit_build_core.build"
 
 [project]
-name = "panda3d-interrogate"
+name = "redpanda3d-interrogate"
 version = "0.7.2"
-description = "Binding generator designed for Panda3D"
+description = "Binding generator designed for Redpanda"
 readme = "README.md"
 requires-python = ">=3.2"
 license = { "file" = "LICENSE" }
@@ -20,9 +20,8 @@ classifiers = [
 ]
 
 [project.urls]
-Source = "https://github.com/panda3d/interrogate"
-Tracker = "https://github.com/panda3d/interrogate/issues"
-Funding = "https://opencollective.com/panda3d"
+Source = "https://github.com/redpanda3dengine/interrogate"
+Tracker = "https://github.com/redpanda3dengine/interrogate/issues"
 
 [project.scripts]
 interrogate = "interrogate:main"

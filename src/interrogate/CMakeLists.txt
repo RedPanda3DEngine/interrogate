@@ -5,6 +5,7 @@ set(INTERROGATE_HEADERS
   functionWriters.h
   interfaceMaker.h
   interfaceMakerC.h
+  interfaceMakerCSharp.h
   interfaceMakerPython.h interfaceMakerPythonObj.h
   interfaceMakerPythonSimple.h
   interfaceMakerPythonNative.h
@@ -32,6 +33,7 @@ set(INTERROGATE_SOURCES
   functionWriters.cxx
   interfaceMaker.cxx
   interfaceMakerC.cxx
+  interfaceMakerCSharp.cxx
   interfaceMakerPython.cxx interfaceMakerPythonObj.cxx
   interfaceMakerPythonSimple.cxx
   interfaceMakerPythonNative.cxx

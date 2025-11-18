@@ -30,6 +30,8 @@ Back-ends
 The following back-ends are currently implemented:
 
 - `-c`: generate C wrapper functions for use with an FFI.
+- `-csharp`: generate C# P/Invoke wrapper functions and interop declarations
+  for .NET integration.
 - `-python`: the "simple" Python back-end, supporting basic functions.
   Supports the stable Python API.
 - `-python-obj`: a version of the above back-end with object support.
